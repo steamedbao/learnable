@@ -6,6 +6,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from snippets.views import api_root
 from snippets.urls import *
 
+
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
@@ -22,5 +23,5 @@ urlpatterns = format_suffix_patterns([
 ])
 
 urlpatterns += [
-    path('test-auth/', include('rest_framework.urls')),
+    path('api-auth/', include('rest_framework.urls')),
 ]
