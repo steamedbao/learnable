@@ -3,15 +3,14 @@ from rest_framework import viewsets
 from rest_framework import permissions
 from quickstart.serializers import UserSerializer, GroupSerializer
 
+from rest_framework import viewsets
 
-class UserViewSet(viewsets.ModelViewSet):
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    This viewset automatically provides `list` and `detail` actions.
     """
-    queryset = User.objects.all().order_by('-date_joined')
+    queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
-
 
 class GroupViewSet(viewsets.ModelViewSet):
     """
@@ -20,3 +19,4 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+
