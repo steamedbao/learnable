@@ -2,6 +2,9 @@ from django.urls import include, path
 from rest_framework import routers
 from quickstart import views
 from django.conf.urls import include
+from rest_framework.urlpatterns import format_suffix_patterns
+from snippets.views import api_root
+from snippets.urls import *
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
